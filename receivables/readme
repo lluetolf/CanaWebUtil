@@ -1,0 +1,8 @@
+Cloud Function
+Triggers on upload to: dev-canaweb-firestore.appspot.com
+Folder: email_data
+
+--
+bl="gs://dev-canaweb-firestore.appspot.com/"
+cd /mnt/c/Users/lukas/IdeaProjects/untitled/email_data/
+gsutil cp file_name $bl

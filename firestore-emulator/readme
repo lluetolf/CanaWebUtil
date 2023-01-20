@@ -1,0 +1,13 @@
+# Setup FirestoreEmulator
+
+
+# Port prod data to local
+bucket="gs://firestore-backup20230116/"
+gsutil ls $bucket
+mkdir ./backup4
+mkdir ./backup4/firestore_export
+gsutil -m cp -r $bucket/<folder>/* ./backup4/
+cp -r ./backup3/auth_export/ backup4/
+cp -r ./backup3/firebase-export-metadata.json backup4/
+mv backup4/firestore_export/*.overall_export_metadata backup4/firestore_export/firestore_export.overall_export_metadata
+firebase emulators:start --import backup4/
